@@ -1,0 +1,31 @@
+{
+  "time": "2026-10-24 13:02:59",
+  "target": "http://127.0.0.1:3000",
+  "http_status": 200,
+  "findings": [
+    {
+      "id": "VS-ED82A0",
+      "title": "Missing Content-Security-Policy",
+      "severity": "MEDIUM",
+      "evidence": "Content-Security-Policy header absent in response",
+      "url": "http://127.0.0.1:3000",
+      "status": "Needs Review"
+    },
+    {
+      "id": "VS-1005E7",
+      "title": "Missing Referrer-Policy",
+      "severity": "LOW",
+      "evidence": "Referrer-Policy header absent in response",
+      "url": "http://127.0.0.1:3000",
+      "status": "Needs Review"
+    },
+    {
+      "id": "VS-017F09",
+      "title": "HTTP used instead of HTTPS",
+      "severity": "MEDIUM",
+      "evidence": "The local target was accessed over HTTP; assess TLS in an appropriate environment.",
+      "url": "http://127.0.0.1:3000",
+      "status": "Needs Review"
+    }
+  ]
+}
