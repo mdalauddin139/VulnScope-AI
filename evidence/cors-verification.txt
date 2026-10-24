@@ -1,0 +1,13 @@
+CORS Verification - Local OWASP Juice Shop
+Target: http://127.0.0.1:3000
+Saturday 24 October 2026 10:59:44 PM IST
+
+===== Homepage =====
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Vary: Accept-Encoding
+
+===== robots.txt =====
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Vary: Accept-Encoding
