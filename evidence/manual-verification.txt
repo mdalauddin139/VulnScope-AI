@@ -1,0 +1,33 @@
+VulnScope-AI - Manual HTTP Header Verification
+
+Target: http://127.0.0.1:3000
+Environment: Local OWASP Juice Shop lab
+Method: HTTP response header inspection using curl
+Authorization: Local lab only
+
+Observed response:
+HTTP/1.1 200 OK
+
+Headers observed:
+- X-Content-Type-Options: nosniff
+- X-Frame-Options: SAMEORIGIN
+
+Headers not observed in the saved response:
+- Content-Security-Policy
+- Referrer-Policy
+
+Interpretation:
+The two headers listed as not observed were absent from
+the inspected response. This is a preliminary configuration
+observation, not proof of exploitability.
+
+Recommended follow-up:
+- Review the application's security requirements.
+- Configure an appropriate Content-Security-Policy after testing
+  the application's scripts, styles, and required resources.
+- Set a suitable Referrer-Policy based on privacy requirements.
+- Retest the response after any configuration changes.
+
+Limitations:
+This check inspected one local HTTP response. It does not
+represent a full penetration test or production assessment.
