@@ -228,6 +228,29 @@ def report():
         ])
     if not rec["findings"]:
         story.append(Paragraph("No issues detected by these limited checks. This does not prove the application is secure.", styles["BodyText"]))
+    story.extend([
+        Spacer(1, 16),
+        Paragraph("Supplementary Manual Observation: CORS", styles["Heading2"]),
+        Paragraph(
+            "During a separate manual check of the local Juice Shop homepage and "
+            "robots.txt, responses included Access-Control-Allow-Origin: *. "
+            "Access-Control-Allow-Credentials was not observed in the saved evidence.",
+            styles["BodyText"]
+        ),
+        Spacer(1, 6),
+        Paragraph("Assessment status: Observed configuration; security impact not established.",
+                  styles["Normal"]),
+        Paragraph(
+            "A wildcard CORS header alone does not prove a vulnerability. "
+            "Only two endpoints were checked. Sensitive-data exposure, authenticated "
+            "cross-origin access, and application-wide CORS behavior were not established. "
+            "Review whether wildcard access is intentional and retest affected resources.",
+            styles["BodyText"]
+        ),
+        Paragraph("Evidence file: evidence/cors-verification.txt",
+                  styles["BodyText"]),
+    ])
+
     doc.build(story)
     buf.seek(0)
     return send_file(buf, as_attachment=True, download_name="VulnScope-VAPT-Report.pdf", mimetype="application/pdf")

@@ -30,18 +30,28 @@ web application in an authorized lab environment.
 - Simple web dashboard
 
 ## Sample Assessment Observations
-The sample local assessment recorded these observations:
-- Content-Security-Policy header was absent.
-- Referrer-Policy header was absent.
+The local lab review recorded these observations:
+- Content-Security-Policy was not observed in one homepage response.
+- Referrer-Policy was not observed in one homepage response.
 - The local target was accessed over HTTP rather than HTTPS.
+- `Access-Control-Allow-Origin: *` was observed on the homepage and
+  `robots.txt` responses during a separate CORS check.
 
-These are preliminary observations and require manual review.
-Their presence alone does not prove that the application is exploitable.
+These observations are limited in scope and do not prove exploitability.
+The CORS observation does not by itself establish access to sensitive data
+or authenticated resources. See `reports/CORS-Finding.md` and the saved
+evidence files for details and limitations.
 
 ## Project Structure
 - app.py: Flask dashboard and assessment logic
 - evidence/latest.json: Latest saved assessment evidence
+- evidence/cors-verification.txt: CORS response evidence
+- evidence/fresh-homepage-headers.txt: Fresh homepage header capture
 - reports/VulnScope-VAPT-Report.pdf: Sample PDF report
+- reports/VulnScope-Detailed-VAPT-Report.pdf: Detailed lab report
+- reports/CSP-Finding.md: CSP observation and notes
+- reports/CORS-Finding.md: CORS observation and limitations
+- reports/Remediation-Plan.md: Suggested remediation plan
 - README.md: Project documentation
 - .gitignore: Excluded development files
 
